@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register_login.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    
+    <div class="login-page">
+        <div class="form">
+            <!-- for login request -->
+            {% if r_or_l == "Login" %}
+            <form action="{{ url_for('auth.login') }}" method="POST">
+              {{ form.csrf_token }}
+            {% if form.username.errors or form.password.errors %}
+            <p class="error"> Invalid username or password </p>
+            {% endif %}
+            <input name="username" type="text" placeholder="username"/>
+            <input name="password" type="password" placeholder="password"/>
+            <button type="submit">{{ r_or_l }}</button>
+            </form>
+            <!-- end for login request -->
+
+            <!-- for register request -->
+            {% elif r_or_l == "Register" %}
+            <form action="{{ url_for('auth.register') }}" method="POST">
+              {{ form.csrf_token }}
+            {% for error in form.username.errors %}
+            <p class="error"> {{ error }} </p>
+            {% endfor %}
+            <input name="username" type="text" placeholder="username"/>
+            {% for error in form.password.errors %}
+            <p class="error"> {{ error }} </p>
+            {% endfor %}
+            <input name="password" type="password" placeholder="password"/>
+            {% for error in form.email.errors %}
+            <p class="error"> {{ error }} </p>
+            {% endfor %}
+            <input name="email" type="text" placeholder="email address"/>
+            <input name="first_name" type="text" placeholder="firstname"/>
+            <input name="last_name" type="text" placeholder="lastname"/>
+            <button type="submit">{{ r_or_l }}</button>
+            <p class="message">Already registered? <a href="{{ url_for('auth.login') }}">Sign In</a></p>
+            </form>
+            {% endif %}
+            <!-- end for register request -->
+        </div>
+    </div>
+
+</body>
+
+</html>

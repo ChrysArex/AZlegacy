@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/postes.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<title>Home</title>
+</head>
+<body>
+
+<div class="navbar">
+  <button class="navbar-button">Home</button>
+  <button class="navbar-button">Profile</button>
+  <button class="navbar-button">Login</button>
+</div>
+
+<div class="vertical">
+  <div class="search-bar">
+    <button><i class="fas fa-search"></i></button>
+    <input type="text" placeholder="Search...">
+  </div>
+  <div class="horizontal-bar"></div>
+<!-- Main content of the page -->
+  <div class="main-content">
+    <div class="column-1">
+      <div class="vertical-bar"></div>
+    </div>
+    <!-- publications -->
+    <div>
+      <div class="publication">
+        <div class="user-info">
+            <div class="profil-pix">
+              <img src="arix.jpg" alt="">
+            </div>
+        </div>
+        <h2 class="publication-title">Publication Title</h2>
+        <p class="publication-content">Publication Content</p>
+        <div class="interactions">
+            <button class="upvote-btn">Upvote</button>
+            <button class="downvote-btn">Downvote</button>
+            <button class="comment-btn">Comments</button>
+        </div>
+      </div>
+  
+      <div class="publication">
+        <div class="user-info">
+            <div class="profil-pix">
+              Lorem ipsum
+              <a href=""></a>
+            </div>
+        </div>
+        <h2 class="publication-title">Publication Title</h2>
+        <p class="publication-content">Publication Content</p>
+        <div class="interactions">
+            <button class="upvote-btn">Upvote</button>
+            <button class="downvote-btn">Downvote</button>
+            <button class="comment-btn">Comments</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+</body>
+</html>

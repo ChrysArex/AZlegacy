@@ -1,6 +1,7 @@
 """This file contain the app factory wich will return our main flask app
 """
 from flask import Flask
+from flask_login import LoginManager
 import os
 
 def create_app(test_config=None):
@@ -18,16 +19,22 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.login"
+    login_manager.init_app(app)
+
     from . import db
     from .models import User
     db.init_db()
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return db.session.query(User.User).filter_by(id=user_id).first()
+
     app.teardown_appcontext(db.shutdown_session)
 
-    @app.route('/hello')
-    def hello():
-        first = User.User("doudou", "Adoumasse", "adoumasseo@gmail.com", "passwd")
-        db.session.add(first)
-        db.session.commit()
-        return first.__repr__()
+    """ add the authentication blueprint"""
+    from .auth import auth_bp
+    app.register_blueprint(auth_bp)
 
     return app

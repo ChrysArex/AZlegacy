@@ -1,0 +1,152 @@
+/* Navbar */
+.navbar {
+  background-color: #be24c4; /* Purple color */
+  padding: 1px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Shadow to give depth */
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  grid-row: auto;
+  display: flex;
+  justify-content: flex-end;
+  /* position: fixed; */
+  z-index: 1000;
+}
+
+  .navbar-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 30px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+/* end Navbar */
+
+/* Search bar */
+.search-bar {
+  margin-top: 10px;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 50px;
+  /*box-shadow: 0px 2px 4px rgba(202, 174, 174, 0.027);*/ /* Shadow to give depth */
+  width: 500px;
+  margin: auto;
+  grid-row: auto;
+}
+
+.search-bar input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.search-bar button {
+  background-color: #be24c4; /* Purple color */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  cursor: pointer;
+}
+/* end search bar */
+
+/* Horizontal bar */
+.horizontal-bar {
+  /* position: relative; */
+  margin: auto;
+  width: 70%; /* Adjust width */
+  height: 0.5px; /* Adjust thickness */
+  background-color: rgba(0, 0, 0, 0.164); /* Adjust color */
+  grid-row: auto;
+}
+/* end Horizotal bar */
+
+/* Vertical bar */
+.vertical-bar {
+  flex-direction: column; /* Align items vertically */
+  background-color: rgba(0, 0, 0, 0.164);
+  width: 1px;
+  height: 500px;
+  grid-column: 1;
+}
+/* End vertical bar */
+
+/* Postes */
+
+.publication {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 1px;
+}
+
+/* .user-info {
+} */
+
+.profil-pix {
+  display: inline-block;
+  /* background-color: #be24c4; */
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+}
+
+.profil-pix img {
+  width: 100%; /* Make the image width 100% of the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any default inline space */
+}
+
+.publication-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.publication-content {
+  margin-bottom: 20px;
+}
+
+.interactions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.interactions button {
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+
+
+/* General */
+
+.main-content {
+  display: grid;
+  grid-template-columns: 15.1% auto auto;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-1 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-row-gap: 10px;
+
+}

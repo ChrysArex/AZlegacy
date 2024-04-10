@@ -10,13 +10,13 @@ USE AZlegacy;
 
 CREATE TABLE `users`
 (
- `user_id`    varchar(128) NOT NULL ,
+ `id`    varchar(128) NOT NULL ,
  `first_name` varchar(45) NOT NULL ,
  `last_name`  varchar(45) NOT NULL ,
  `email`      varchar(100) NOT NULL ,
  `passwd`     varchar(130) NOT NULL ,
 
-PRIMARY KEY (`user_id`)
+PRIMARY KEY (`id`)
 );
 
 -- ************************************** `Budjet`
@@ -30,7 +30,7 @@ CREATE TABLE `budjets`
 
 PRIMARY KEY (`budjet_id`),
 KEY `FK_1` (`user_id`),
-CONSTRAINT `FK_1` FOREIGN KEY `FK_1` (`user_id`) REFERENCES `users` (`user_id`)
+CONSTRAINT `FK_1` FOREIGN KEY `FK_1` (`user_id`) REFERENCES `users` (`id`)
 );
 
 -- ************************************** `components`
@@ -62,7 +62,7 @@ CREATE TABLE `posts`
 
 PRIMARY KEY (`Post_id`),
 KEY `FK_1` (`user_id`),
-CONSTRAINT `FK_3` FOREIGN KEY `FK_1` (`user_id`) REFERENCES `users` (`user_id`)
+CONSTRAINT `FK_3` FOREIGN KEY `FK_1` (`user_id`) REFERENCES `users` (`id`)
 );
 
 -- ************************************** `comments`
@@ -91,7 +91,7 @@ CREATE TABLE `side_hustles`
 
 PRIMARY KEY (`side_hustle_id`),
 KEY `FK_1` (`user_id`),
-CONSTRAINT `FK_2` FOREIGN KEY `FK_1` (`user_id`) REFERENCES `users` (`user_id`)
+CONSTRAINT `FK_2` FOREIGN KEY `FK_1` (`user_id`) REFERENCES `users` (`id`)
 );
 
 

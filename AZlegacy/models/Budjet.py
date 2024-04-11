@@ -12,7 +12,7 @@ class Budjet(Base):
     __tablename__ = 'budjets'
     budjet_id = Column(String(128), primary_key=True, nullable=False)
     timeline = Column(Integer(), nullable=False)
-    user_id = Column(String(128), nullable=False, ForeignKey(User.user_id))
+    user_id = Column(String(128), ForeignKey(User.user_id), nullable=False)
     total_amount = Column(Float, nullable=False)
 
     def __init__(self, timeline, user_id, total=0):

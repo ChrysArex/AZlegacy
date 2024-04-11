@@ -1,7 +1,8 @@
 """This file contain the app factory wich will return our main flask app
 """
-from flask import Flask
-from flask_login import LoginManager
+from flask import Flask, render_template
+from flask_login import LoginManager, login_required
+import requests
 import os
 
 def create_app(test_config=None):
@@ -36,5 +37,16 @@ def create_app(test_config=None):
     """ add the authentication blueprint"""
     from .auth import auth_bp
     app.register_blueprint(auth_bp)
+
+    @app.route("/feed", methods=["GET"])
+    @login_required
+    def feed():
+        """Feed the postes page with data fetch from third-party API(reddit)
+        """
+        headers = {'User-Agent': "AZlegacy1"}
+        url = "https://www.reddit.com/r/FinancialPlanning/hot.json?limit=100"
+        r = requests.get(url, headers)
+        hot = r.json().get('data').get('children')
+        return render_template("postes.html", hot=hot)
 
     return app

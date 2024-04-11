@@ -12,6 +12,7 @@
 <div class="navbar">
   <button class="navbar-button">Home</button>
   <button class="navbar-button">Profile</button>
+  
   <button class="navbar-button">Login</button>
 </div>
 
@@ -28,38 +29,24 @@
     </div>
     <!-- publications -->
     <div>
+      {% for h in hot %}
       <div class="publication">
         <div class="user-info">
             <div class="profil-pix">
               <img src="arix.jpg" alt="">
             </div>
         </div>
-        <h2 class="publication-title">Publication Title</h2>
-        <p class="publication-content">Publication Content</p>
+        <h2 class="publication-title">{{ h.get('data').get('title') }}</h2>
+        <div class="publication-content">
+            <p>{{ h.get('data').get('selftext') }}</p>
+        </div>
         <div class="interactions">
             <button class="upvote-btn">Upvote</button>
             <button class="downvote-btn">Downvote</button>
             <button class="comment-btn">Comments</button>
         </div>
       </div>
-  
-      <div class="publication">
-        <div class="user-info">
-            <div class="profil-pix">
-              Lorem ipsum
-              <a href=""></a>
-            </div>
-        </div>
-        <h2 class="publication-title">Publication Title</h2>
-        <p class="publication-content">Publication Content</p>
-        <div class="interactions">
-            <button class="upvote-btn">Upvote</button>
-            <button class="downvote-btn">Downvote</button>
-            <button class="comment-btn">Comments</button>
-        </div>
-      </div>
-    </div>
-    
+      {% endfor %}
   </div>
 </div>
 

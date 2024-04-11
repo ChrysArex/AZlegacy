@@ -1,7 +1,7 @@
 """Define function views for login and register
 """
 from flask import (
-        Blueprint, url_for, redirect, request, render_template, session, flash
+        Blueprint, url_for, redirect, request, render_template
         )
 from flask_login import login_user, logout_user, login_required
 from werkzeug.security import check_password_hash
@@ -41,11 +41,10 @@ def login():
     form = LoginForm(request.form)
     if request.method == "POST":
         user = session.query(User.User).filter_by(username=request.form.get("username")).first()
-        form = LoginForm(request.form)
         if not form.validate():
             return render_template("auth/register_login.html", form=form, r_or_l=r_or_l)
         login_user(user)
-        return "User credentials are correcte. Welcome: " + str(user)
+        return redirect(url_for("feed"))
 
     return render_template("auth/register_login.html", form=form, r_or_l=r_or_l)
 

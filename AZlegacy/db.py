@@ -12,7 +12,7 @@ session = scoped_session(sessionmaker(
 Base = declarative_base()
 
 def init_db():
-    """initialize the database by mapping the defined models with databas
+    """initialize the database by mapping the defined models with database
     tables
     """
     from . import models

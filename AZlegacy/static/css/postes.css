@@ -85,6 +85,15 @@
   border: 1px solid #ccc;
   padding: 20px;
   margin-bottom: 1px;
+  width: 600px;
+  
+}
+
+/* postes content */
+.publication-content {
+    padding: 5px; 
+    max-height: 106px;
+    overflow: hidden;
 }
 
 /* .user-info {

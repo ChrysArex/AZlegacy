@@ -3,7 +3,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, scoped_session, sessionmaker
 
-engine = create_engine("mysql+mysqldb://root:Vladine5@localhost/AZlegacy")
+engine = create_engine("sqlite:///AZlegacy.db")
 session = scoped_session(sessionmaker(
                             autocommit=False,
                             autoflush=False,

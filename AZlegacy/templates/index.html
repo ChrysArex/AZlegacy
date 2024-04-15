@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>AZlegacy landing page</title>
+        <title>AZlegacy</title>
 
         <!-- CSS FILES -->        
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +16,11 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
                         
-        <link href="TopicListing-1.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
-        <link href="TopicListing-1.0.0/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/bootstrap-icons.css') }}" rel="stylesheet">
 
-        <link href="TopicListing-1.0.0/css/templatemo-topic-listing.css" rel="stylesheet">      
+        <link href="{{ url_for('static', filename='css/templatemo-topic-listing.css') }}" rel="stylesheet">      
 <!--
 
 TemplateMo 590 topic listing
@@ -80,21 +80,15 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="row">
 
                         <div class="col-lg-8 col-12 mx-auto">
-                            <h1 class="text-white text-center">Save. Plan. Get inspired</h1>
+                            <h1 class="text-white text-center">Get inspired. Plan. Save</h1>
 
-                            <h6 class="text-center">platform for money maker around the world</h6>
-
-                            <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
-                                <div class="input-group input-group-lg">
-                                    <span class="input-group-text bi-search" id="basic-addon1">
-                                        
-                                    </span>
-
-                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="" aria-label="Search">
-
-                                    <button type="submit" class="form-control">Search</button>
-                                </div>
-                            </form>
+                            <h1 class="text-center"> 
+                                <a href="{{ url_for('auth.register') }}">
+                                    <button style="background: #000000; border: 0; border-radius: 15px; color: #FFFFFF;">
+                                        Get Started
+                                    </button>
+                                </a> 
+                            </h1>
                         </div>
 
                     </div>
@@ -102,40 +96,9 @@ https://templatemo.com/tm-590-topic-listing
             </section>
 
             <section class="explore-section section-padding" id="section_2">
-                <div class="container">
+                
 
-                        <div class="col-12 text-center">
-                            <h2 class="mb-4">Browse Topics</h1>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Design</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Marketing</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Finance</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Music</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane" aria-selected="false">Education</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
 
                 <div class="container">
                     <div class="row">
@@ -155,7 +118,7 @@ https://templatemo.com/tm-590-topic-listing
                                                         </div>
                                                     </div>
 
-                                                    <img src="TopicListing-1.0.0/images/topics/save.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="{{ url_for('static', filename='img/save.png') }}" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -170,7 +133,7 @@ https://templatemo.com/tm-590-topic-listing
                                                                 <p class="mb-0">Make a detail plan toward your lagacy by building great side hustle and businesses</p>
                                                         </div>
                                                     </div>
-                                                    <img src="TopicListing-1.0.0/images/topics/plan.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="{{ url_for('static', filename='img/plan.png') }}" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -186,7 +149,7 @@ https://templatemo.com/tm-590-topic-listing
                                                         </div>
                                                     </div>
 
-                                                    <img src="TopicListing-1.0.0/images/topics/get_inspired.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="{{ url_for('static', filename='img/get_inspired.png') }}" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -207,7 +170,7 @@ https://templatemo.com/tm-590-topic-listing
                         <div class="clearfix"></div>
 
                         <div class="col-lg-5 col-12">
-                            <img src="TopicListing-1.0.0/images/about.png" class="img-fluid" alt="FAQs">
+                            <img src="{{ url_for('static', filename='img/about.png') }}" class="img-fluid" alt="FAQs">
                         </div>
 
                         <div class="col-lg-6 col-12 m-auto">
@@ -269,25 +232,12 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="col-lg-3 col-12 mb-4 pb-2">
                         <a class="navbar-brand mb-2" href="index.html">
                             <i class="bi-back"></i>
-                            <span>Topic</span>
+                            <span>AZlegacy</span>
                         </a>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-6">
                         <h6 class="site-footer-title mb-3">Resources</h6>
-
-                        <ul class="site-footer-links">
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Home</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">How it works</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">FAQs</a>
-                            </li>
 
                             <li class="site-footer-link-item">
                                 <a href="#" class="site-footer-link">Contact</a>
@@ -299,14 +249,14 @@ https://templatemo.com/tm-590-topic-listing
                         <h6 class="site-footer-title mb-3">Information</h6>
 
                         <p class="text-white d-flex mb-1">
-                            <a href="tel: 305-240-9671" class="site-footer-link">
-                                305-240-9671
+                            <a href="tel: +22955028104" class="site-footer-link">
+                                +22955028104
                             </a>
                         </p>
 
                         <p class="text-white d-flex">
-                            <a href="mailto:info@company.com" class="site-footer-link">
-                                info@company.com
+                            <a href="mailto:chrysazokly@gmail.com" class="site-footer-link">
+                                chrysazokly@gmail.com
                             </a>
                         </p>
                     </div>
@@ -336,11 +286,11 @@ https://templatemo.com/tm-590-topic-listing
 
 
         <!-- JAVASCRIPT FILES -->
-        <script src="TopicListing-1.0.0/js/jquery.min.js"></script>
-        <script src="TopicListing-1.0.0/js/bootstrap.bundle.min.js"></script>
-        <script src="TopicListing-1.0.0/js/jquery.sticky.js"></script>
-        <script src="TopicListing-1.0.0/js/click-scroll.js"></script>
-        <script src="TopicListing-1.0.0/js/custom.js"></script>
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.sticky.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/click-scroll.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
 
     </body>
 </html>

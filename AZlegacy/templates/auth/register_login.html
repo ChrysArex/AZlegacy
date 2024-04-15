@@ -19,6 +19,8 @@
         <div class="form">
             <!-- for login request -->
             {% if r_or_l == "Login" %}
+            Enter your login credentials
+            <br>
             <form action="{{ url_for('auth.login') }}" method="POST">
               {{ form.csrf_token }}
             {% if form.username.errors or form.password.errors %}
@@ -32,6 +34,8 @@
 
             <!-- for register request -->
             {% elif r_or_l == "Register" %}
+            Create your account here
+            <br>
             <form action="{{ url_for('auth.register') }}" method="POST">
               {{ form.csrf_token }}
             {% for error in form.username.errors %}

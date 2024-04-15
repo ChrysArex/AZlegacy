@@ -34,7 +34,7 @@ def create_app(test_config=None):
 
     app.teardown_appcontext(db.shutdown_session)
     """set the landing page"""
-    @app.route("/", method=["GET"])
+    @app.route("/", methods=["GET"])
     def landing_page():
         return render_template("index.html")
 

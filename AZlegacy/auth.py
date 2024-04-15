@@ -10,7 +10,7 @@ from .models import User
 from .db import session
 from .FormValidator import RegistrationForm, LoginForm
 
-auth_bp = Blueprint("auth", __name__, url_prefix="/Auth")
+auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 @auth_bp.route("/register", methods=("GET", "POST"))
 def register():
@@ -29,7 +29,7 @@ def register():
                         )
         session.add(user)
         session.commit()
-        return "user registered succesfully :-)"
+        return redirect(url_for("auth.login"))
 
     return render_template("auth/register_login.html", form=form, r_or_l=r_or_l)
 

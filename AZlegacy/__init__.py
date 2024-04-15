@@ -33,8 +33,12 @@ def create_app(test_config=None):
         return db.session.query(User.User).filter_by(id=user_id).first()
 
     app.teardown_appcontext(db.shutdown_session)
+    """set the landing page"""
+    @app.route("/", method=["GET"])
+    def landing_page():
+        return render_template("index.html")
 
-    """ add the authentication blueprint"""
+    """add the authentication blueprint"""
     from .auth import auth_bp
     app.register_blueprint(auth_bp)
 

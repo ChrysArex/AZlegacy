@@ -21,7 +21,7 @@ class User(UserMixin, Base):
     def __init__(self, first_name, last_name, username, email, passwd):
         """Initiate the model object with column values
         """
-        self.user_id = uuid4()
+        self.id = str(uuid4())
         self.first_name = first_name
         self.last_name = last_name
         self.username = username

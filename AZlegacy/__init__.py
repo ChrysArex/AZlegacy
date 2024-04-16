@@ -3,6 +3,7 @@
 from flask import Flask, render_template
 from flask_login import LoginManager, login_required
 import requests
+import json
 import os
 
 def create_app(test_config=None):
@@ -47,10 +48,19 @@ def create_app(test_config=None):
     def feed():
         """Feed the postes page with data fetch from third-party API(reddit)
         """
-        headers = {'User-Agent': "AZlegacy1"}
+        fetched_data = {}
+        headers_1 = {'User-Agent': "AZlegacy-1"}
+        headers_2 = {'User-Agent': "AZlegacy-2"}
+        headers_3 = {'User-Agent': "AZlegacy-3"}
         url = "https://www.reddit.com/r/FinancialPlanning/hot.json?limit=100"
-        r = requests.get(url, headers)
-        hot = r.json().get('data').get('children')
+        try:
+            r = requests.get(url, headers_1)
+            fetched_data = r.json().get('data').get('children')
+        except:
+            r = requests.get(url, headers_2)
+            fetched_data = r.json().get('data').get('children')
+        finally:
+            hot = fetched_data
         return render_template("postes.html", hot=hot)
 
     return app

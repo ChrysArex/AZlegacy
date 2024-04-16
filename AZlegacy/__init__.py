@@ -48,6 +48,7 @@ def create_app(test_config=None):
     def feed():
         """Feed the postes page with data fetch from third-party API(reddit)
         """
+        fetched_data = {}
         headers_1 = {'User-Agent': "AZlegacy-1"}
         headers_2 = {'User-Agent': "AZlegacy-2"}
         headers_3 = {'User-Agent': "AZlegacy-3"}
@@ -58,8 +59,6 @@ def create_app(test_config=None):
         except:
             r = requests.get(url, headers_2)
             fetched_data = json.loads(r.text).get('data').get('children')
-        except:
-            fetched_data = {}
         finally:
             hot = fetched_data
         return render_template("postes.html", hot=hot)

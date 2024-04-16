@@ -55,6 +55,9 @@ def create_app(test_config=None):
         url = "https://www.reddit.com/r/FinancialPlanning/hot.json?limit=100"
         try:
             r = requests.get(url, headers_1)
+            print(r)
+            print(r.text)
+            print(r.json())
             fetched_data = json.loads(r.text).get('data').get('children')
         except:
             r = requests.get(url, headers_2)

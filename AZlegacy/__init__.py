@@ -2,6 +2,7 @@
 """
 from flask import Flask, render_template
 from flask_login import LoginManager, login_required
+from .API_auth import app_auth
 import requests
 import json
 import os
@@ -48,6 +49,7 @@ def create_app(test_config=None):
     def feed():
         """Feed the postes page with data fetch from third-party API(reddit)
         """
+        app_auth()
         fetched_data = {}
         headers_1 = {'User-Agent': "AZlegacy-1"}
         headers_2 = {'User-Agent': "AZlegacy-2"}

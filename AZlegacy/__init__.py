@@ -49,21 +49,17 @@ def create_app(test_config=None):
     def feed():
         """Feed the postes page with data fetch from third-party API(reddit)
         """
-        app_auth()
         fetched_data = {}
-        headers_1 = {'User-Agent': "AZlegacy-1"}
-        headers_2 = {'User-Agent': "AZlegacy-2"}
-        headers_3 = {'User-Agent': "AZlegacy-3"}
-        url = "https://www.reddit.com/r/FinancialPlanning/hot.json?limit=100"
+        headers_1 = app_auth()
+        url = "https://oauth.reddit.com/r/FinancialPlanning/hot.json?limit=100"
         try:
-            r = requests.get(url, headers_1)
+            r = requests.get(url, headers=headers_1)
             print(r)
             print(r.text)
             print(r.json())
             fetched_data = json.loads(r.text).get('data').get('children')
         except:
-            r = requests.get(url, headers_2)
-            fetched_data = json.loads(r.text).get('data').get('children')
+            print("authentication error")
         finally:
             hot = fetched_data
         return render_template("postes.html", hot=hot)
